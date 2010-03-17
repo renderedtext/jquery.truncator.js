@@ -13,10 +13,10 @@
     $(this).each(function() {
 
       var content_length = $.trim(squeeze($(this).text())).length;
-      if (content_length <= opts.max_length)
+      if (content_length <= opts.maxLength)
         return;  // bail early if not overlong
 
-      var actual_max_length = opts.max_length - opts.more.length - 3;  // 3 for " ()"
+      var actual_max_length = opts.maxLength - opts.more.length - 3;  // 3 for " ()"
       var truncated_node = recursivelyTruncate(this, actual_max_length);
       var full_node = $(this).hide();
 
@@ -43,7 +43,7 @@
   // Note that the " (…more)" bit counts towards the max length – so a max
   // length of 10 would truncate "1234567890" to "12 (…more)".
   $.fn.truncate.defaults = {
-    max_length: 100,
+    maxLength: 100,
     more: '…more',
     less: 'less'
   };

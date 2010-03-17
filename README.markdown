@@ -48,7 +48,7 @@ The available options are:
    Defaults to `less`.
 
 
- * **`max_length`**
+ * **`maxLength`**
 
    Defaults to `100`.
    
