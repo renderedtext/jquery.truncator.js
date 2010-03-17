@@ -26,7 +26,7 @@ While there are many JavaScript truncators, this one is unique in handling HTML 
 As shown in the provided `example.html`, just do e.g.
 
     $(function() {
-      $('.example').truncate({max_length: 24});
+      $('.example').truncate({maxLength: 24});
     });
     
 The selector and options can, of course, be changed.
