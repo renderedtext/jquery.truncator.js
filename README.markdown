@@ -54,6 +54,11 @@ The available options are:
    
    Note that the ` (…more)` bit counts towards the max length – so a max length of 10 would truncate `1234567890` to `12 (…more)`.
 
+
+ * **`linkClass`**
+
+   The class name of more/less links. Defaults to nothing.
+   
 ## Credits and license
 
 By [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
