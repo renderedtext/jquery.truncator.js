@@ -25,7 +25,7 @@
       findNodeForMore(truncated_node).append('…&nbsp;<a href="#showMoreContent">'+opts.more+'</a>');
       findNodeForLess(full_node).append('&nbsp;<a href="#showLessContent">'+opts.less+'</a>');
 
-      if (opts.linkClass.length > 0) {
+      if (opts.linkClass && opts.linkClass.length > 0) {
         truncated_node.find('a:last').addClass(opts.linkClass);
         full_node.find('a:last').addClass(opts.linkClass);
       }
