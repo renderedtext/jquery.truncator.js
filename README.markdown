@@ -58,10 +58,14 @@ The available options are:
  * **`linkClass`**
 
    The class name of more/less links. Defaults to nothing.
+
+ * **`stripFormatting`**
+
+   Will strip HTML formatting in truncated text. Defaults to false.
    
 ## Credits and license
 
-By [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
+Originally developed by [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
 
 >  Copyright (c) 2008 Henrik Nyh
 >
