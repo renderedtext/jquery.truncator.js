@@ -56,7 +56,7 @@
 
   function truncateWithoutFormatting(node, max_length) {
     var new_node = $(node).clone().empty();
-    var text = squeeze($(node).text()); //.replace(/^\s*|\s*$/g,'').replace(/\s+/g, ' ');
+    var text = squeeze($(node).text());
     text = text.slice(0, max_length);
     new_node.text(text);
     return new_node;
