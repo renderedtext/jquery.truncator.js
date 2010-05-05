@@ -17,7 +17,12 @@
         return;  // bail early if not overlong
 
       var actual_max_length = opts.maxLength - opts.more.length - 3;  // 3 for " ()"
-      var truncated_node = recursivelyTruncate(this, actual_max_length);
+      var truncated_node;
+      if (opts.stripFormatting == true) {
+        truncated_node = truncateWithoutFormatting(this, actual_max_length);
+      } else {
+        truncated_node = recursivelyTruncate(this, actual_max_length);
+      }
       var full_node = $(this).hide();
 
       truncated_node.insertAfter(full_node);
@@ -45,8 +50,17 @@
   $.fn.truncate.defaults = {
     maxLength: 100,
     more: '…more',
-    less: 'less'
+    less: 'less',
+    stripFormatting: false
   };
+
+  function truncateWithoutFormatting(node, max_length) {
+    var new_node = $(node).clone().empty();
+    var text = squeeze($(node).text()); //.replace(/^\s*|\s*$/g,'').replace(/\s+/g, ' ');
+    text = text.slice(0, max_length);
+    new_node.text(text);
+    return new_node;
+  }
 
   function recursivelyTruncate(node, max_length) {
     return (node.nodeType == 3) ? truncateText(node, max_length) : truncateNode(node, max_length);

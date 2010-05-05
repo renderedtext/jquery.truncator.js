@@ -9,6 +9,7 @@
     $(function() {
       $('.example').truncate({maxLength: 24});
       $('.exampleRed').truncate({maxLength: 24, linkClass: "toggle"});
+      $('.exampleNoHtml').truncate({maxLength: 80, stripFormatting: true});
     });
 
   </script>
@@ -56,6 +57,21 @@
     </table>
   </div>
 
+  <h2>Example 5: Strip HTML in preview</h2>
+  <div class="exampleNoHtml">
+    <p>Hello <em>emphasized</em>!</p>
+
+    <h3>Subtitle</h3>
+    
+    <table>
+      <tr><th>Foo</th><th>Bar</th></tr>
+      <tr><td>Lauren</td><td>Ipsum</td></tr>
+    </table>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+  </div>
+
 </body>
 </html>
-  
