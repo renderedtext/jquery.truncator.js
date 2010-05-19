@@ -12,11 +12,11 @@ Clicking "…more" shows
     
 Clicking "less" goes back to the truncated text.
 
-There is also [a live example](http://henrik.nyh.se/examples/truncator/) (or try the provided `example.html` locally).
+There is also [a live example](http://renderedtext.com/demos/jquery-truncator-example.html) (or try the provided `example.html` locally).
 
 ## Graceful HTML handling
 
-While there are many JavaScript truncators, this one is unique in handling HTML gracefully. That means you can truncate an element containing paragraphs, links, other markup and HTML entities without strange results.
+While there are many JavaScript truncators, this one is unique in handling HTML gracefully. That means you can truncate an element containing paragraphs, links, other markup and HTML entities without strange results. You can also choose to omit any HTML in the truncated version of the text.
 
 `<b>a &amp; b</b>` is considered to be 5 (not 16) characters long during truncation, and truncation will never cause start tags to be missing their end tags, entities or tags to be broken apart, and so on.
 
@@ -65,7 +65,7 @@ The available options are:
    
 ## Credits and license
 
-Originally developed by [Henrik Nyh](http://henrik.nyh.se/) under the MIT license:
+Originally developed by [Henrik Nyh](http://henrik.nyh.se/), extended by [Rendered Text](http://renderedtext.com) under the MIT license:
 
 >  Copyright (c) 2008 Henrik Nyh
 >
