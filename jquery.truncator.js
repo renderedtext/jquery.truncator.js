@@ -28,17 +28,20 @@
       truncated_node.insertAfter(full_node);
       
       findNodeForMore(truncated_node).append('…&nbsp;<a href="#showMoreContent">'+opts.more+'</a>');
-      findNodeForLess(full_node).append('&nbsp;<a href="#showLessContent">'+opts.less+'</a>');
+      if (opts.less) {
+        findNodeForLess(full_node).append('&nbsp;<a href="#showLessContent">'+opts.less+'</a>');
+      }
 
+      var controlLinkSelector = 'a[href^="#show"][href$="Content"]:last';
       if (opts.linkClass && opts.linkClass.length > 0) {
-        truncated_node.find('a:last').addClass(opts.linkClass);
-        full_node.find('a:last').addClass(opts.linkClass);
+        truncated_node.find(controlLinkSelector).addClass(opts.linkClass);
+        full_node.find(controlLinkSelector).addClass(opts.linkClass);
       }
       
-      truncated_node.find('a:last').click(function() {
+      truncated_node.find(controlLinkSelector).click(function() {
         truncated_node.hide(); full_node.show(); return false;
       });
-      full_node.find('a:last').click(function() {
+      full_node.find(controlLinkSelector).click(function() {
         truncated_node.show(); full_node.hide(); return false;
       });
 
@@ -50,7 +53,7 @@
   $.fn.truncate.defaults = {
     maxLength: 100,
     more: '…more',
-    less: 'less',
+    less: 'less', // Use null or false to omit
     stripFormatting: false
   };
 
