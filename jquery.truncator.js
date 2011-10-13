@@ -49,15 +49,11 @@
   };
 
   function truncateWithoutFormatting(node, max_length) {
-    var new_node = $(node).clone().empty();
-    var text = squeeze($(node).text());
-    text = text.slice(0, max_length);
-    new_node.text(text);
-    return new_node;
+    return $(node).clone().empty().text(squeeze($(node).text()).slice(0, max_length));
   }
 
   function recursivelyTruncate(node, max_length) {
-    return (node.nodeType == 3) ? truncateText(node, max_length) : truncateNode(node, max_length);
+    return ((node.nodeType == 3) ? truncateText : truncateNode)(node, max_length);
   }
 
   function truncateNode(node, max_length) {
@@ -89,22 +85,17 @@
     return string.replace(/\s+/g, ' ');
   }
 
-  // Finds the last, innermost block-level element
   function findNodeForMore(node) {
-    var $node = $(node);
-    var last_child = $node.children(":last");
-    if (!last_child) return node;
-    var display = last_child.css('display');
-    if (!display || display=='inline') return $node;
-    return findNodeForMore(last_child);
+    var isBlock = function(i) {
+      var display = $(this).css('display');
+      return (display && display!='inline');
+    };
+    var child = node.children(":last").filter(isBlock);
+    return child.length > 0 ? findNodeForMore(child) : node;
   }
 
-  // Finds the last child if it's a p; otherwise the parent
   function findNodeForLess(node) {
-    var $node = $(node);
-    var last_child = $node.children(":last");
-    if (last_child && last_child.is('p')) return last_child;
-    return node;
-  }
+    return $(node.children(":last").filter('p')[0] || node);
+  };
 
 })(jQuery);
