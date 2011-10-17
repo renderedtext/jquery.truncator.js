@@ -24,9 +24,9 @@
 
       truncated_node.insertAfter(full_node);
 
-      findNodeForMore(truncated_node).append('…&nbsp;<a href="#showMoreContent">'+opts.more+'</a>');
+      findNodeForMore(truncated_node).append(opts.moreSeparator+'<a href="#showMoreContent">'+opts.more+'</a>');
       if (opts.less)
-        findNodeForLess(full_node).append('&nbsp;<a href="#showLessContent">'+opts.less+'</a>');
+        findNodeForLess(full_node).append(opts.lessSeparator+'<a href="#showLessContent">'+opts.less+'</a>');
 
       var nodes = truncated_node.add(full_node);
       var controlLinkSelector = 'a[href^="#show"][href$="Content"]:last';
@@ -45,6 +45,8 @@
     maxLength: 100,
     more: '…more',
     less: 'less', // Use null or false to omit
+    moreSeparator: '…&nbsp;', // Content between the truncated text and "more" link
+    lessSeparator: '&nbsp;',  // Content between the full text the the "less" link
     stripFormatting: false
   };
 
