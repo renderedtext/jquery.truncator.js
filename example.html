@@ -10,6 +10,7 @@
       $('.example').truncate({maxLength: 24});
       $('.exampleRed').truncate({maxLength: 24, linkClass: "toggle"});
       $('.exampleNoHtml').truncate({maxLength: 80, stripFormatting: true});
+      $('.exampleNoLessLink').truncate({maxLength: 80, less: false});
     });
 
   </script>
@@ -72,6 +73,14 @@
     
     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
   </div>
+
+  <h2>Example 6: Don't display "less" link</h2>
+  <div class="exampleNoLessLink">
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </p>
+  </div>
+
 
 </body>
 </html>
