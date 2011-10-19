@@ -45,7 +45,7 @@ The available options are:
 
    The text shown inside parentheses after the full text.
 
-   Defaults to `less`.
+   Defaults to `less`. If set to `false`, it will be omitted.
 
 
  * **`maxLength`**
