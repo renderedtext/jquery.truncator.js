@@ -2,7 +2,12 @@
 // by Henrik Nyh <http://henrik.nyh.se> 2008-02-28.
 // Free to modify and redistribute with credit.
 
-(function($) {
+(function (factory) {
+  if (typeof define === 'function' && define.amd)
+    define(['jquery'], factory); // AMD support for RequireJS etc.
+  else
+    factory(jQuery);
+}(function ($) {
 
   var trailing_whitespace = true;
 
@@ -100,4 +105,4 @@
     return $(node.children(":last").filter('p')[0] || node);
   };
 
-})(jQuery);
+}));
